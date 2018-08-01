@@ -1,0 +1,1 @@
+Tesk task for SoftServe
