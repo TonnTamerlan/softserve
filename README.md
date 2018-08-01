@@ -1,1 +1,1 @@
-Tesk task for SoftServe
+The Test task for SoftServe company
