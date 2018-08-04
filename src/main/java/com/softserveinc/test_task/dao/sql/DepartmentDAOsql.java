@@ -19,12 +19,12 @@ class DepartmentDAOsql {
     
     
     // Fake department names
-    private final String[] NAMES = {"Financial department", "Custom service department", "Technical department",
+    private static final String[] NAMES = {"Financial department", "Custom service department", "Technical department",
             "HR department", "Easy fun department", "Software development department", "Marketing department",
             "Accounting department"};
     
     // Fake districts
-    private final String[] DISTRICTS = {"KYIV", "LVIV", "DNIPRO", "NEW YORK", "LONDON", "TASHKENT", "BERLIN",
+    private static final String[] DISTRICTS = {"KYIV", "LVIV", "DNIPRO", "NEW YORK", "LONDON", "TASHKENT", "BERLIN",
             "AMSTERDAM", "PARIS", "SIDNEY"};
     
     private final Connection connection;

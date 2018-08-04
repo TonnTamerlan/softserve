@@ -21,18 +21,18 @@ class StaffDAOsql {
     
     
     // Fake first names
-    private final String[] FIRST_NAMES = { "Akexey", "Vladimir", "Anna", "Elena", "Alexander", "Victor", "Bogdan", "Olga",
+    private static final String[] FIRST_NAMES = { "Akexey", "Vladimir", "Anna", "Elena", "Alexander", "Victor", "Bogdan", "Olga",
             "Ivan", "Vasiliy" };
     
     // Fake last names
-    private final String[] LAST_NAMES = { "Petrenko", "Sidorenko", "Ivanko", "Kapustenko", "Pershevich", "Sovkun",
+    private static final String[] LAST_NAMES = { "Petrenko", "Sidorenko", "Ivanko", "Kapustenko", "Pershevich", "Sovkun",
             "Borodavchenko", "Sokol", "Piven", "Pushkin" };
     
     // Min staff age
-    private final int MIN_AGE = 14;
+    private static final int MIN_AGE = 14;
     
     // Max staff age
-    private final int MAX_AGE = 80;
+    private static final int MAX_AGE = 80;
     
     private final Connection connection;
     
