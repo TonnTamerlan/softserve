@@ -69,6 +69,27 @@ class DepartmentDAOsql {
     }
     
     /**
+     * Get list of departments which place in the specified district
+     * 
+     * @param districtName - the name of district
+     * @return the list of departments
+     * @throws SQLException
+     */
+    List<Department> getByDistrict(String districtName) throws SQLException{
+        List<Department> departments = new ArrayList<>();
+        String sql = "SELECT * FROM departments WHERE district = ?";
+        try(PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setString(1, districtName);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                Department current = new Department(result.getInt("id"), result.getString("name"), result.getString("district"));
+                departments.add(current);
+            }
+            return departments;
+        }
+    }
+    
+    /**
      * Fill the table "departments" with fake data
      * 
      * @throws SQLException
@@ -87,5 +108,4 @@ class DepartmentDAOsql {
         }
     }
     
-
 }
