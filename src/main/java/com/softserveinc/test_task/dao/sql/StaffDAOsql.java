@@ -77,6 +77,30 @@ class StaffDAOsql {
     }
     
     /**
+     * Get staff with the age in age bounds
+     * 
+     * @param start - the start of age bounds inclusively
+     * @param end - the end of age bounds inclusively
+     * @return the list of staff
+     * @throws SQLException
+     */
+    List<Staff> getByAgeBounds(int start, int end) throws SQLException{
+        List<Staff> staff = new ArrayList<>();
+        String sql = "SELECT * FROM staff WHERE age >= ? AND age <= ?";
+        
+        try(PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setInt(1, start);
+            statement.setInt(2, end);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                Staff current = new Staff(result.getInt("id"), result.getString("name"), result.getInt("age"));
+                staff.add(current);
+            }
+            return staff;
+        }
+    }
+    
+    /**
      * Fill the table "staff" with fake data
      * 
      * @param fieldsNumber - a number of person which need to add as fake data
@@ -93,6 +117,9 @@ class StaffDAOsql {
                 statement.setString(1, lastName + " " + firstName);
                 statement.setInt(2, age);
                 statement.addBatch();
+                if(i % 10000 == 0) {
+                    statement.executeLargeBatch();
+                }
             }
             statement.executeLargeBatch();
         }
