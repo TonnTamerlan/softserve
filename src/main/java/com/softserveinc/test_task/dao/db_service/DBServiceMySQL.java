@@ -1,4 +1,4 @@
-package com.softserveinc.test_task.db_service;
+package com.softserveinc.test_task.dao.db_service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
